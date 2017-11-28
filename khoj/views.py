@@ -1,6 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import *
+from .scrape import Scraper
 
 # Create your views here.
-def hello(request):
-    return HttpResponse("<h1>Hello World</h1>")
+def home(request):
+    return render(request, 'khoj/home.html')
+
+def search(request):
+    q = request.GET.get("q")
+    lc = request.GET.get("lc")
+    
+    data = Scraper(q, lc, 2)
+    data.scrape()
+
+    post = Post.objects.filter(baddress__icontains=lc)
+    context = {
+        'post': post
+    }
+    return render(request, 'khoj/search.html', context)

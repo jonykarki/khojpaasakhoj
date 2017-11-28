@@ -1,0 +1,34 @@
+{% extends 'khoj/base.html'%}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static "css/home.css" %}" >{% endblock %}
+{% block content %}
+
+<header class="seerch-search-filter">
+<div class="overlay"></div>
+<div class="seerch-search-filter-content">
+<div class="seerch-search-filter-logo"></div>
+<form class="seerch-search-filter-form" action="search/" method="GET">
+    {% csrf_token %}
+  <label for="findtext">Find</label>
+  <input id="findtext" name="q" class="seerch-search-filter-form-find" type="text" />
+  <div class="divider">&nbsp;</div>
+  <label for="findlocate">Near</label>
+  <input id="findlocate" name="lc" class="seerch-search-filter-form-near" type="text" />
+  <button class="button"><i class="fa fa-search"></i></button>
+</form>
+<ul class="seerch-search-filter-menu menu align-center">
+  <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants</a></li>
+  <li><a href="#"><i class="fa fa-handshake-o" aria-hidden="true"></i> Used Goods</a></li>
+  <li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i> Home Services</a></li>
+  <li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i> Delivery</a></li>
+</ul>
+</div>
+</header>
+
+{% endblock %}
+
+
+
+
+

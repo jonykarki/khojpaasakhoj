@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6 ie ltie9 ltie8 no-js" lang="en_US"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 ie ltie9 ltie8 no-js" lang="en_US"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 ie ltie9 no-js" lang="en_US"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 ie no-js" lang="en_US"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en_US">
+<!--<![endif]-->
+<html>
+
+<head>
+    <title>Seerch | Find what you want</title>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="SPl+zb+RYvDwrMFFXIy7kgpaRh/UcdX12DqLyncwm6svxXhdhnZVA9jhtkWB1nBD4+V0/0NeqZtbPO8xMneJNw=="
+    />
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
+    <script src="https://use.fontawesome.com/cc2f89fd42.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.js"></script>
+
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        $(function () {
+            var availableTags = [
+                "Used Goods",
+                "Restaurants",
+                "Delivery",
+                "Home Services",
+                "Aparrels & accessories",
+                "Automobiles",
+                "Beauty and Health",
+                "Books and learning",
+                "Business and Industrial",
+                "Computer and Peripherals",
+                "Consumer Electronics",
+                "Events and Happenings",
+                "Home, Furnishing and Appliances",
+                "Mobile and accessories",
+                "Music Instruments",
+                "Pets and Pets Care",
+                "Real Estate",
+                "Services",
+                "Sports and Fitness",
+                "Toys & Video games",
+                "Travel and Tour Packages",
+                "Others"
+            ];
+
+            $("#findtext").autocomplete({
+                source: availableTags
+            });
+
+        });
+
+
+        $(function () {
+            var availableTags = [
+                "Kathmandu",
+                "Bhaktapur",
+                "Lalitpur",
+                "Pokhara"
+            ];
+            $("#findlocate").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
+</body>
+
+</html>

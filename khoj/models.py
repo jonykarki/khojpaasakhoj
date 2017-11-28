@@ -11,12 +11,6 @@ class Post(models.Model):
     bowner = models.CharField(max_length=200, null=True)
     bemail = models.CharField(max_length=200, null=True)
     bwebsite = models.CharField(max_length=200, null=True)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
 
     def __str__(self):
         return self.bname

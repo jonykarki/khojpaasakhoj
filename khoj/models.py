@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Post(models.Model):
-    bimg = models.CharField(max_length=200)
+    bimg = models.URLField()
     btype = models.CharField(max_length=200)
     bname = models.CharField(max_length=200)
     bservices = models.CharField(max_length=400)

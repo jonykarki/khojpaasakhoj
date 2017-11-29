@@ -115,7 +115,7 @@ class Scraper():
                 bwebsite = "Not Available"
                 
                 # add to the database
-                do the check before adding 
+                # do the check before adding 
                 if Post.objects.filter(bname = bname).exists():
                     print(bname + " is already in the Database")
                     print("\n")

@@ -3,13 +3,76 @@
 {% block content %}
 
 <!-- print all the posts entered in the database -->
-<h2>Posts in Database</h2>
+<div class="container">
 {% for pos in post %}
 
+<!-- Main Business Card -->
+<div class="py-1 my-1"></div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">
+                VERIFIED
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <img class="img img-responsive" src='{{ pos.bimage }}' alt="Business Image" width="200">
+                </div>
+                <div class="col-md-6">
+                    <div class="py-1 my-1"></div>
+                    <h4>{{ pos.bname }}
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </h4>
+                    <h6>{{ pos.bservices }}</h6>
+                    <div class="py-1 my-1"></div>
+                    <p>
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ pos.bowner }}</p>
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{ pos.baddress }}</p>
+                </div>
 
-<h1>{{ pos.bname }}</h1>
-<h2>{{ pos.baddress }}</h2>
+                <div class="col-md-3">
+                    <div class="py-1 my-1"></div>
+                    <div style="font-size: 19px;">
+                        <i class="fa fa-phone-square" aria-hidden="true"></i> {{ pos.bphoneno }}</div>
+                    <div style="font-size: 19px;">
+                        <i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div style="font-size: 19px;">
+                        <i class="fa fa-internet-explorer" aria-hidden="true"></i> Website</div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <div class="row text-center">
+                    <div class="col-md-2">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Like
+                    </div>
+
+                    <div class="col-md-2">
+                        <i class="fa fa-comment" aria-hidden="true"></i>   Comment
+                    </div>
+
+                    <div class="col-md-3">
+                        <i class="fa fa-eye" aria-hidden="true"></i>  1199 views
+                    </div>
+
+                    <div class="col-md-3">
+                        <i class="fa fa-flag" aria-hidden="true"></i>   Notify Edits
+                    </div>
+
+                    <div class="col-md-2">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>   Share
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-2 my-2"></div>
+
+<!-- Business Card End -->
 
 {% endfor %}
-
+</div>
 {% endblock %}

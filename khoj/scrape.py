@@ -95,7 +95,7 @@ class Scraper():
                 try:
                     # there are spaces in phone no and dashes
                     # convert the string data type into int
-                    bphoneno = int(infos[4][2].replace(" - ", "")).encode("utf-8")
+                    bphoneno = int(infos[4][2].replace(" - ", ""))
                 except:
                     bphoneno = 0
 

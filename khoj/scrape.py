@@ -88,7 +88,7 @@ class Scraper():
             # TODO: insert the above information into the database
 
             for infos in master_list:
-                #bimg = infos[0]
+                bimg = infos[0]
                 btype = infos[1]
                 bname = infos[2].replace("'", "")
                 bservices = infos[3]
@@ -120,7 +120,7 @@ class Scraper():
                     print(bname + " is already in the Database")
                     print("\n\n")
                 else:
-                    post = Post(btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
+                    post = Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
                     post.save()
                     print("INSERTED " + bname + " into the Database")
                     print("*"*100)
@@ -135,3 +135,5 @@ class Scraper():
                 #     print("*"*100 + " \n")
                 # if(id.data_in_database() == False):
                 #     id.insert_into_database()
+
+        

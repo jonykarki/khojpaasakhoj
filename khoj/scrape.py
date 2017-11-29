@@ -120,8 +120,7 @@ class Scraper():
                     print(bname + " is already in the Database")
                     print("\n\n")
                 else:
-                    post = Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
-                    post.save()
+                    Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
                     print("INSERTED " + bname + " into the Database")
                     print("*"*100)
 

@@ -91,7 +91,7 @@ class Scraper():
                 bimg = infos[0]
                 btype = infos[1]
                 bname = infos[2].replace("'", "")
-                bservices = infos[3]
+                bservices = infos[3].encode("utf-8")
                 try:
                     # there are spaces in phone no and dashes
                     # convert the string data type into int
@@ -107,7 +107,7 @@ class Scraper():
 
                 # see if the owner is available
                 try:
-                    bowner = infos[4][4]
+                    bowner = infos[4][4].encode("utf-8")
                 except:
                     bowner = "Owner Not Available"
 
@@ -118,11 +118,12 @@ class Scraper():
                 # do the check before adding 
                 if Post.objects.filter(bname = bname).exists():
                     print(bname + " is already in the Database")
-                    print("\n\n")
+                    print("\n")
                 else:
                     Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
                     print("INSERTED " + bname + " into the Database")
                     print("*"*100)
+                
 
 
                 #### insert the data into the database development server ### 

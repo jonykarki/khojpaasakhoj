@@ -117,11 +117,11 @@ class Scraper():
                 # add to the database
                 # do the check before adding 
                 if Post.objects.filter(bname = bname).exists():
-                    print(bname + " is already in the Database")
+                    print(str(bname) + " is already in the Database")
                     print("\n")
                 else:
                     Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
-                    print("INSERTED " + bname + " into the Database")
+                    print("INSERTED " + str(bname) + " into the Database")
                     print("*"*100)
                 
 

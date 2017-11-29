@@ -6,7 +6,7 @@ class Post(models.Model):
     btype = models.CharField(max_length=200)
     bname = models.CharField(max_length=200)
     bservices = models.CharField(max_length=400)
-    bphoneno = models.IntegerField()
+    bphoneno = models.BigIntegerField(max_length=500)
     baddress = models.CharField(max_length=150)
     bowner = models.CharField(max_length=200, null=True)
     bemail = models.CharField(max_length=200, null=True)

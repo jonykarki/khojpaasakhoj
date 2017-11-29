@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import datetime
 from .models import *
+from .database import InsertDatabase
 
 #from .database import InsertDatabase
 
@@ -116,24 +117,24 @@ class Scraper():
                 
                 # add to the database
                 # do the check before adding 
-                if Post.objects.filter(bname = bname).exists():
-                    print(bname + " is already in the Database")
-                    print("\n")
-                else:
-                    Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
-                    print("INSERTED " + bname + " into the Database")
-                    print("*"*100)
+                # if Post.objects.filter(bname = bname).exists():
+                #     print(bname + " is already in the Database")
+                #     print("\n")
+                # else:
+                #     Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
+                #     print("INSERTED " + bname + " into the Database")
+                #     print("*"*100)
                 
 
 
-                #### insert the data into the database development server ### 
-                # id = InsertDatabase(bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
+                ### insert the data into the database development server ### 
+                id = InsertDatabase(bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
                 
-                # # first check if the data is already in the database if not insert it into the database
-                # if(id.data_in_database() == True):
-                #     print(bname + " is ALREADY in the Database")
-                #     print("*"*100 + " \n")
-                # if(id.data_in_database() == False):
-                #     id.insert_into_database()
+                # first check if the data is already in the database if not insert it into the database
+                if(id.data_in_database() == True):
+                    print(bname + " is ALREADY in the Database")
+                    print("*"*100 + " \n")
+                if(id.data_in_database() == False):
+                    id.insert_into_database()
 
         

@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import requests
 import datetime
 from .models import *
-from .database import InsertDatabase
 
 #from .database import InsertDatabase
 
@@ -89,20 +88,20 @@ class Scraper():
             # TODO: insert the above information into the database
 
             for infos in master_list:
-                bimg = infos[0]
-                btype = infos[1]
-                bname = infos[2].replace("'", "")
+                bimg = infos[0].encode("utf-8")
+                btype = infos[1].encode("utf-8")
+                bname = infos[2].replace("'", "").encode("utf-8")
                 bservices = infos[3].encode("utf-8")
                 try:
                     # there are spaces in phone no and dashes
                     # convert the string data type into int
-                    bphoneno = int(infos[4][2].replace(" - ", ""))
+                    bphoneno = int(infos[4][2].replace(" - ", "")).encode("utf-8")
                 except:
                     bphoneno = 0
 
                 # see if the address is available
                 try:
-                    baddress = infos[4][3]
+                    baddress = infos[4][3].encode("utf-8")
                 except:
                     baddress = "Address Not Available"
 
@@ -116,25 +115,25 @@ class Scraper():
                 bwebsite = "Not Available"
                 
                 # add to the database
-                # do the check before adding 
-                # if Post.objects.filter(bname = bname).exists():
-                #     print(bname + " is already in the Database")
-                #     print("\n")
-                # else:
-                #     Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
-                #     print("INSERTED " + bname + " into the Database")
-                #     print("*"*100)
+                do the check before adding 
+                if Post.objects.filter(bname = bname).exists():
+                    print(bname + " is already in the Database")
+                    print("\n")
+                else:
+                    Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
+                    print("INSERTED " + bname + " into the Database")
+                    print("*"*100)
                 
 
 
-                ### insert the data into the database development server ### 
-                id = InsertDatabase(bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
+                # ### insert the data into the database development server ### 
+                # id = InsertDatabase(bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite)
                 
-                # first check if the data is already in the database if not insert it into the database
-                if(id.data_in_database() == True):
-                    print(bname + " is ALREADY in the Database")
-                    print("*"*100 + " \n")
-                if(id.data_in_database() == False):
-                    id.insert_into_database()
+                # # first check if the data is already in the database if not insert it into the database
+                # if(id.data_in_database() == True):
+                #     print(bname + " is ALREADY in the Database")
+                #     print("*"*100 + " \n")
+                # if(id.data_in_database() == False):
+                #     id.insert_into_database()
 
         

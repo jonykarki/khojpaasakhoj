@@ -1,5 +1,5 @@
 # import the module
-import psycopg2 as db
+import sqlite3 as db
 import datetime
 
 # create a class called database
@@ -17,7 +17,7 @@ class InsertDatabase():
         self.bwebsite = bwebsite
 
         #connect to the database
-        self.conn = db.connect('dkc2gr094item=')
+        self.conn = db.connect('dkc2gr094item')
 
         # get the cursor
         self.c = self.conn.cursor()

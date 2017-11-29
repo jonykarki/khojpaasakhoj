@@ -11,12 +11,19 @@
 <div class="row">
     <div class="col-md-9">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header text-white bg-success">
                 VERIFIED
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <img class="img img-responsive" src='{{ pos.bimage }}' alt="Business Image" width="200">
+                    <img class="img img-responsive" src="
+                    {% if "https://" in pos.bimg %}
+                    {{ pos.bimg }}
+                    {% else %}
+                    https://www.makeupgeek.com/content/wp-content/themes/makeup-geek/images/placeholder-square.svg
+                    {% endif %}
+                    " alt="Business Image" width="200">
+                
                 </div>
                 <div class="col-md-6">
                     <div class="py-1 my-1"></div>
@@ -36,14 +43,14 @@
                     <div style="font-size: 19px;">
                         <i class="fa fa-phone-square" aria-hidden="true"></i> {{ pos.bphoneno }}</div>
                     <div style="font-size: 19px;">
-                        <i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>  Email</div>
                     <div style="font-size: 19px;">
                         <i class="fa fa-internet-explorer" aria-hidden="true"></i> Website</div>
                 </div>
 
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer text-white bg-success">
                 <div class="row text-center">
                     <div class="col-md-2">
                         <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Like

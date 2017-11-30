@@ -95,7 +95,7 @@ class Scraper():
                 try:
                     # there are spaces in phone no and dashes
                     # convert the string data type into int
-                    bphoneno = int(infos[4][2].replace(" - ", ""))
+                    bphoneno = int(infos[4][2].replace(" - ", "")).encode("utf-8")
                 except:
                     bphoneno = 0
 
@@ -116,9 +116,10 @@ class Scraper():
                 
                 # add to the database
                 # do the check before adding 
-                if Post.objects.filter(bname = bname).exists():
+                if Post.objects.filter(bname = str(bname)).exists():
                     print(str(bname) + " is already in the Database")
                     print("\n")
+                
                 else:
                     Post(None, bimg, btype, bname, bservices, bphoneno, baddress, bowner, bemail, bwebsite).save()
                     print("INSERTED " + str(bname) + " into the Database")
